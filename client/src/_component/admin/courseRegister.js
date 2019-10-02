@@ -6,7 +6,6 @@ import { registerCourse } from '../../_actions/index';
 import classnames from 'classnames';
 import Axios from 'axios';
 import { MDBBtn } from "mdbreact";
-import {FormattedMessage} from 'react-intl';
 
 
 class RegisterCourse extends Component {
@@ -88,9 +87,9 @@ class RegisterCourse extends Component {
             {!this.result || <table>
                 <tbody>
                 <tr>
-                    <th><FormattedMessage id='name' defaultMessage='name'/></th>
-                    <th><FormattedMessage id='teacher' defaultMessage='teacher'/></th>
-                    <th><FormattedMessage id='status' defaultMessage='status'/></th>
+                    <th>name</th>
+                    <th>teacher</th>
+                    <th>status</th>
                 </tr>
                 
                     {courses.map(course=>{
@@ -98,8 +97,8 @@ class RegisterCourse extends Component {
                             <td>{course.name}</td>
                             <td>{course.teacher}</td>
                             <td>{course.status}</td>
-                            <td><MDBBtn onClick={this.EditeCourse(course.id)} color='info'><FormattedMessage id='Edit' defaultMessage='Edit'/></MDBBtn>  
-                            <MDBBtn onClick={this.deleteCourse} color='danger'><FormattedMessage id='delete' defaultMessage='delete'/></MDBBtn></td>
+                            <td><MDBBtn onClick={this.EditeCourse(course.id)} color='info'>Edite</MDBBtn>  
+                            <MDBBtn onClick={this.deleteCourse} color='danger'>delete</MDBBtn></td>
                         </tr> 
                     })}
                </tbody>
@@ -112,8 +111,8 @@ class RegisterCourse extends Component {
         const { errors, teachers } = this.state;
         //console.log(teachers);
         return (
-            <div className="container" style={{ marginTop: '50px', width: '700px' }}>
-                <h2 style={{ marginBottom: '40px' }}><FormattedMessage id='Registration' defaultMessage='Registration'/></h2>
+            <div className="container AddnewUser" >
+                <h2 style={{ marginBottom: '40px' }}>Registration</h2>
                 <form onSubmit={this.handleSubmit}>
                     <div className="form-group">
                         <input
@@ -130,7 +129,8 @@ class RegisterCourse extends Component {
                     </div>
 
                     <div className="form-group">
-                        <select name="status" id="status" className="form-control" onChange={this.handleInputChange}>
+                        <select name="status" id="statu
+s" className="form-control" onChange={this.handleInputChange}>
                             <option value='notdefine'>choose status</option>
                             <option value="I" key='I'>Inprogress</option>
                             <option value="D" key='D'>Done</option>
@@ -142,7 +142,7 @@ class RegisterCourse extends Component {
 
                         <select name="teacher" id="teacher" className="form-control" onChange={this.handleInputChange}>
 
-                            <option value='notdefine'><FormattedMessage id='chooseTeacher' defaultMessage='choose teacher'/></option>    
+                            <option value='notdefine'>choose teacher</option>    
                             {teachers.map(teacher => {
                                 return <option value={teacher.id} key={teacher.id}>{teacher.name}</option>
                             })}
@@ -153,7 +153,7 @@ class RegisterCourse extends Component {
 
                     <div className="form-group">
                         <button type="submit" className="btn btn-primary">
-                        <FormattedMessage id='RegisterCourse' defaultMessage='Register Course'/>
+                            Register Course
                     </button>
                     </div>
                 </form>

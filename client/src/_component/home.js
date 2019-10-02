@@ -1,8 +1,14 @@
 import React from 'react';
 import Login from './Login';
 import Register from './register';
+import Sidebar from './Sidebar';
+import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { registerUser } from '../_actions/authentication';
+import { withRouter } from 'react-router-dom';
 
-export default class Home extends React.Component{
+ class Home extends React.Component{
 
     constructor(props){
         super(props)
@@ -22,11 +28,24 @@ export default class Home extends React.Component{
         } */
     }
     render(){
+        const {isAuthenticated, user} = this.props.auth;
         return<div style={{display:'flex',justifyContent:'center',alignItems:'center'}}>
         
-        {this.checkRoute()}
+      {/*   {!isAuthenticated || <Sidebar/>} */}
         
     </div>
     }
     
 }
+Home.propTypes = {
+    //registerUser: PropTypes.func.isRequired,
+    auth: PropTypes.object.isRequired
+};
+
+const mapStateToProps = state => ({
+    errors: state.errors,
+    auth: state.auth,
+    courseStatus: state.courseStatus
+});
+
+export default connect(mapStateToProps)(withRouter(Home))

@@ -8,11 +8,12 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 import { chartjs } from '../../_helper';
-import theme from '../../theme';
+//import theme from '../../theme';
 import 'react-perfect-scrollbar/dist/css/styles.css';
 import '../../App.scss';
 import validators from '../../common/validators';
-import Routes from '../../Routes';
+import Sidebar from '../Sidebar';
+//import Routes from '../../Routes';
 
 
 const browserHistory = createBrowserHistory();
@@ -42,12 +43,17 @@ class Admin extends Component {
     } 
   render() {
     return (
-      <ThemeProvider theme={theme}>
+     /*  <ThemeProvider theme={theme}>
         <Router history={browserHistory}>
           
           <Routes />
         </Router>
-      </ThemeProvider>
+      </ThemeProvider> */
+      <div className='mainPage'>
+        <h1>hello</h1>
+        <div></div>
+      </div>
+      
     );
   }
 }

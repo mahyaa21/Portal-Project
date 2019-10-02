@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
-import { registerUser } from '../_actions/authentication';
+import { registerUser } from '../../_actions/authentication';
 import classnames from 'classnames';
 import { MDBBtn } from "mdbreact";
 
-class Register extends Component {
+class AddNewUser extends Component {
 
     constructor(props) {
         super(props);
@@ -105,8 +105,8 @@ class Register extends Component {
         const { errors } = this.state;
 
         return (
-            <div className="container" style={{ marginTop: '50px', width: '700px' }}>
-                <h2 style={{ marginBottom: '40px' }}>Registration</h2>
+            <div className="container AddnewUser">
+                <h2 style={{ padding: '10px' }}>Registration</h2>
                 <form onSubmit={this.handleSubmit}>
                     <div className="form-group">
                         <input
@@ -189,7 +189,6 @@ class Register extends Component {
 
                 </form>
                 <div>
-
                     {this.createUserAdded()}
                 </div>
             </div>
@@ -197,7 +196,7 @@ class Register extends Component {
     }
 }
 
-Register.propTypes = {
+AddNewUser.propTypes = {
     registerUser: PropTypes.func.isRequired,
     auth: PropTypes.object.isRequired
 };
@@ -208,4 +207,4 @@ const mapStateToProps = state => ({
     courseStatus: state.courseStatus
 });
 
-export default connect(mapStateToProps, { registerUser })(withRouter(Register))
+export default connect(mapStateToProps, { registerUser })(withRouter(AddNewUser))

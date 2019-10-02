@@ -3,8 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { loginUser } from '../_actions/authentication';
 import classnames from 'classnames';
-import {FormattedMessage} from 'react-intl';
-
+import '../App.scss'
 
 class Login extends Component {
 
@@ -53,14 +52,16 @@ class Login extends Component {
     render() {
         const {errors} = this.state;
         return(
-        <div className="container">
-            <h2><FormattedMessage id='Login' defaultMessage='Login' /> </h2>
+        <div className="container login">
+           
+            <div className='loginForm'>
+            <h2 className='title'>Login</h2>
             <form onSubmit={ this.handleSubmit }>
                 <div className="form-group">
                     <input
                     type="email"
                     placeholder="Email"
-                    className={classnames('form-control form-control-lg', {
+                    className={classnames(' ', {
                         'is-invalid': errors.email
                     })}
                     name="email"
@@ -73,7 +74,7 @@ class Login extends Component {
                     <input
                     type="password"
                     placeholder="Password"
-                    className={classnames('form-control form-control-lg', {
+                    className={classnames('', {
                         'is-invalid': errors.password
                     })} 
                     name="password"
@@ -83,11 +84,12 @@ class Login extends Component {
                     {errors.password && (<div className="invalid-feedback">{errors.password}</div>)}
                 </div>
                 <div className="form-group">
-                    <button type="submit" className="btn btn-primary" >
-                        <FormattedMessage id='LoginUser' defaultMessage='Login User' /> 
+                    <button type="submit" className="btn btn-primary button" >
+                        Login User
                     </button>
                 </div>
             </form>
+            </div>
         </div>
         )
     }

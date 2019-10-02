@@ -13,7 +13,7 @@ const usersRouter = require('./routes/users');
 const users = require('./routes/user');
 const courses = require('./routes/course');
 const courses_user = require('./routes/registerCourse-User')
-const chat = require('./routes/chat');
+
 const app = express();
 app.use(passport.initialize());
 require('./passport')(passport); 
@@ -44,7 +44,6 @@ app.use('/', indexRouter);
 app.use('/api/users', users);
 app.use('/api/users/courses', courses);
 app.use('/api/users/courses-user', courses_user);
-app.use('/api/users/chat', chat);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
