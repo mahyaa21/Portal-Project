@@ -18,6 +18,8 @@ import student from './_component/student/student';
 import Sidebar from './_component/Sidebar';
 import AddNewUser from './_component/admin/AddNewUser';
 import RegisterCourseUser from './_component/admin/registerCourseUser';
+import DownloadHomework from './_component/student/DownloadHomeworks'
+import UploadHomework from './_component/student/UploadHomeworks'
 if(localStorage.jwtToken) {
     setAuthToken(localStorage.jwtToken);
     const decoded = jwt_decode(localStorage.jwtToken);
@@ -49,7 +51,8 @@ class App extends Component {
                   <Route path='/registercourseuser' component={RegisterCourseUser}/>
                   <Route path='/teacher' component={Teacher}/>
                   <Route path='/student' component={student}/>
-                  
+                  <Route path='/download' component={UploadHomework}/>
+                  <Route path='/upload' component={DownloadHomework}/>
                 </div>
                  <Sidebar/> 
                 </div>

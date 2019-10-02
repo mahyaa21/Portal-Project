@@ -25,15 +25,15 @@ class AdminSidebar extends Component {
     //     }
     
 
-    // componentDidMount() {
-    //     if(this.props.auth.isAuthenticated) {
-    //        // this.props.history.push('/');
-    //     }else{
-    //         this.props.history.push('/');
-    //         alert('not authenticated')
+    componentDidMount() {
+        if(this.props.auth.isAuthenticated) {
+           // this.props.history.push('/');
+        }else{
+            this.props.history.push('/');
+            alert('not authenticated')
            
-    //     }
-    // }
+        }
+    }
    
 
     render() {
