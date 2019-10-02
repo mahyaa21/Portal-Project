@@ -190,7 +190,7 @@ class Register extends Component {
                 </form>
                 <div>
 
-                    {this.createUserAdded()}
+                   {/*  {this.createUserAdded()} */}
                 </div>
             </div>
         )
