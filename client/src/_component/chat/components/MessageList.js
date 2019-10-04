@@ -1,3 +1,4 @@
+//a component responsible for a list of messages for a particular conversation or room
 import React, { Component } from 'react'
 
  class MessagesList extends Component {

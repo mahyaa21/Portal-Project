@@ -1,3 +1,5 @@
+//a copmonent to capture a text(sent message) by using a form
+// is the same as theWhatIsYourUsernameForm component 
 import React, { Component } from 'react'
 
  class SendMessageForm extends Component {
@@ -18,7 +20,7 @@ import React, { Component } from 'react'
 
    onChange(e) {
      this.setState({ text: e.target.value })
-     if (this.props.onChange) {
+     if (this.props.onChange) { //every time that the input is updated
        this.props.onChange()
      }
    }
