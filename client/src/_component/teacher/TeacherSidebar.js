@@ -46,6 +46,7 @@ class TeacherSidebar extends Component {
                 <ul>
                     <li><Link className="nav-link" to="/download"><FormattedMessage id='Upload' defaultMessage='Upload'/></Link></li>
                     <li><Link className="nav-link" to="/upload"><FormattedMessage id='Download' defaultMessage='Download'/></Link></li>
+                    <li><Link className="nav-link" to="/chat"><FormattedMessage id='chat' defaultMessage='chat'/></Link></li>
                 </ul>
             </div>
         </>

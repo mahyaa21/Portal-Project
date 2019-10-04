@@ -93,8 +93,8 @@ class RegisterCourseUser extends Component {
                         return <td key={courseuser.id} id={courseuser.id}>
                             <tr>{courseuser.course}</tr>
                             <tr>{courseuser.student}</tr>
-                            <tr><MDBBtn onClick={this.EditeCourseuser(courseuser.id)} color='info'><FormattedMessage id='Edit' defaultMessage='Edit'/></MDBBtn>
-                                <MDBBtn onClick={this.deleteCourseuser} color='danger'><FormattedMessage id='delete' defaultMessage='delete'/></MDBBtn></tr>
+                            {/* <tr><MDBBtn onClick={this.EditeCourseuser(courseuser.id)} color='info'><FormattedMessage id='Edit' defaultMessage='Edit'/></MDBBtn>
+                                <MDBBtn onClick={this.deleteCourseuser} color='danger'><FormattedMessage id='delete' defaultMessage='delete'/></MDBBtn></tr> */}
                         </td>
                     })}
                 </tbody>

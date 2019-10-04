@@ -56,8 +56,7 @@ class RegisterCourse extends Component {
        // Axios.put('/api/edit'+ id).then(response=>{})
     }
 
-    deleteCourse = () =>{
-
+    deleteCourse = (rowId) =>{
     }
     componentWillReceiveProps(nextProps) {
         if (nextProps.errors) {
@@ -98,8 +97,8 @@ class RegisterCourse extends Component {
                             <td>{course.name}</td>
                             <td>{course.teacher}</td>
                             <td>{course.status}</td>
-                            <td><MDBBtn onClick={this.EditeCourse(course.id)} color='info'><FormattedMessage id='Edit' defaultMessage='Edit'/></MDBBtn>  
-                            <MDBBtn onClick={this.deleteCourse} color='danger'><FormattedMessage id='delete' defaultMessage='delete'/></MDBBtn></td>
+                            {/* <td><MDBBtn onClick={this.EditeCourse(course.id)} color='info'><FormattedMessage id='Edit' defaultMessage='Edit'/></MDBBtn>  
+                            <MDBBtn onClick={this.deleteCourse} color='danger'><FormattedMessage id='delete' defaultMessage='delete'/></MDBBtn></td> */}
                         </tr> 
                     })}
                </tbody>
