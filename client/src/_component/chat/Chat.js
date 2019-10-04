@@ -26,7 +26,7 @@ class Chat extends Component {
     })
       .then(response => {
         this.setState({
-          currentUsername: user.id,  
+          currentUsername: user.name,  
           currentScreen: 'ChatScreen'
         })
       })
