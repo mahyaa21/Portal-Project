@@ -110,55 +110,67 @@ class AddNewUser extends Component {
                 <h2 style={{ padding: '10px' }}><FormattedMessage id='Registration' defaultMessage='Registration'/></h2>
                 <form onSubmit={this.handleSubmit}>
                     <div className="form-group">
+                    <FormattedMessage id="Name" defaultMessage="Name">
+                        {placeholder =>
                         <input
                             type="text"
-                            placeholder="Name"
+                            placeholder={placeholder}
                             className={classnames('form-control form-control-lg', {
                                 'is-invalid': errors.name
                             })}
                             name="name"
                             onChange={this.handleInputChange}
                             value={this.state.name}
-                        />
+                        />}
+                        </FormattedMessage>
                         {errors.name && (<div className="invalid-feedback">{errors.name}</div>)}
                     </div>
                     <div className="form-group">
+                    <FormattedMessage id="Email" defaultMessage="Email">
+                        {placeholder =>
                         <input
                             type="email"
-                            placeholder="Email"
+                            placeholder={placeholder}
                             className={classnames('form-control form-control-lg', {
                                 'is-invalid': errors.email
                             })}
                             name="email"
                             onChange={this.handleInputChange}
                             value={this.state.email}
-                        />
+                        />}
+                        </FormattedMessage>
                         {errors.email && (<div className="invalid-feedback">{errors.email}</div>)}
                     </div>
                     <div className="form-group">
+                    <FormattedMessage id="password" defaultMessage="Password">
+                    {placeholder =>
                         <input
                             type="password"
-                            placeholder="Password"
+                            placeholder={placeholder}
                             className={classnames('form-control form-control-lg', {
                                 'is-invalid': errors.password
                             })}
                             name="password"
                             onChange={this.handleInputChange}
                             value={this.state.password}
-                        />
+                        />}
+                        </FormattedMessage>
                         {errors.password && (<div className="invalid-feedback">{errors.password}</div>)}
                     </div>
                     <div className="form-group">
+                    <FormattedMessage id="ConfirmPassword" defaultMessage="Confirm Password">
+                    {placeholder =>
                         <input
                             type="password"
-                            placeholder="Confirm Password"
+                            placeholder={placeholder}
                             className={classnames('form-control form-control-lg', {
                                 'is-invalid': errors.password_confirm
                             })}
                             name="password_confirm"
                             onChange={this.handleInputChange}
                             value={this.state.password_confirm}
-                        />
+                        />}
+                        </FormattedMessage>
                         {errors.password_confirm && (<div className="invalid-feedback">{errors.password_confirm}</div>)}
                     </div>
                     <div className="form-group">
@@ -173,11 +185,22 @@ class AddNewUser extends Component {
                             value={this.state.role}
                         /> */}
                         <select name="role" id="role" className="form-control" onChange={this.handleInputChange}>
-
-                            <option value='notdefine'>choose role</option>
-                            <option value='student'>student</option>
-                            <option value='teacher'>teacher</option>
-                            <option value='admin'>admin</option>
+                            <FormattedMessage id='chooserole' >
+                            {(message) =>
+                            <option value='notdefine'>{message}</option>}
+                            </FormattedMessage>
+                            <FormattedMessage id='student' >
+                            {(message) =>
+                            <option value='student'>{message}</option>}
+                            </FormattedMessage>
+                            <FormattedMessage id='teacher' >
+                            {(message) =>
+                            <option value='teacher'>{message}</option>}
+                            </FormattedMessage>
+                            <FormattedMessage id='admin' >
+                            {(message) =>
+                            <option value='admin'>{message}</option>}
+                            </FormattedMessage>
 
                         </select>
                         {errors.role && (<div className="invalid-feedback">{errors.role}</div>)}

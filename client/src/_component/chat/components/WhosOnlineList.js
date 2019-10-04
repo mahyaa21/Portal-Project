@@ -1,5 +1,6 @@
 //
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import {FormattedMessage} from 'react-intl';
 
 class WhosOnlineList extends Component {
   renderUsers() {
@@ -9,7 +10,7 @@ class WhosOnlineList extends Component {
           if (user.id === this.props.currentUser.id) {
             return (
               <WhosOnlineListItem key={index} presenceState="online">
-                {user.name} (You)
+                {user.name} <FormattedMessage id='(You)' defaultMessage='(You)'/>
               </WhosOnlineListItem>
             )
           }
@@ -27,7 +28,7 @@ class WhosOnlineList extends Component {
     if (this.props.users) {
       return this.renderUsers()
     } else {
-      return <p>Loading...</p>
+      return <p><FormattedMessage id='Loading' defaultMessage='Loading'/>...</p>
     }
   }
 }
