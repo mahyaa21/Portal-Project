@@ -8,7 +8,7 @@ import {Navbar, Nav, NavItem, Button, Glyphicon} from 'react-bootstrap';
 //import Sidebar from 'react-bootstrap-sidebar';
 // import Upload from './Upload';
 import { FaBars } from 'react-icons/fa';
-class AdminSidebar extends Component {
+class StudentSidebar extends Component {
 
 
     // constructor(props) {
@@ -50,7 +50,7 @@ class AdminSidebar extends Component {
     }
     
 }
-AdminSidebar.propTypes = {
+StudentSidebar.propTypes = {
     
     auth: PropTypes.object.isRequired
 }
@@ -59,4 +59,4 @@ const mapStateToProps = (state) => ({
     auth: state.auth
 })
 
-export default connect(mapStateToProps)(withRouter(AdminSidebar));
+export default connect(mapStateToProps)(withRouter(StudentSidebar));
