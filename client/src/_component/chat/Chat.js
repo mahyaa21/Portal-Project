@@ -22,7 +22,7 @@ class Chat extends Component {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ user }),
+      body: user/* JSON.stringify({ user }) */,
     })
       .then(response => {
         this.setState({

@@ -68,15 +68,26 @@ router.put('/edit/:id',(req,res)=>{
     })
 });
 
-router.delete('/:id',(req, res)=>{
+router.delete('/:name',(req, res)=>{
 
-    Course.deleteOne({_id: req.params.id}).then(result=>{
+    Course.findOne({name: req.params.name},'_id').then(res=>{
 
-       // req.flash('success_message','category was successfully updated');
+        // Course.deleteOne({_id: res.id}).then(result=>{
 
-       // res.redirect('/courses');
-
-    });
+        //     console.log(result)
+        //     res.send(result)
+        //     //  alert('delete successfully!')
+        //      // req.flash('success_message','category was successfully updated');
+      
+        //      // res.redirect('/courses');
+      
+        //   }).catch(err => {
+        //     res.send('Course does not delete because ...' + err);
+        //   });
+    }).catch(err => {
+        res.send('Course does not find because ...' + err);
+      })
+   
 
 
 });
