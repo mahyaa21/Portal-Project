@@ -42,6 +42,9 @@ export default{
         'courseRegister': 'Course Register',
         'chat': 'chat',
         'hello': 'hello',
+        'homeworks': 'homeworks',
+        'Download': 'Download',
+        'HomeWorksAdded': 'Added HomeWorks',
 
     },
     fa:{
@@ -87,6 +90,9 @@ export default{
         'courseRegister': 'ثبت‌نام دوره',
         'chat': 'چت',
         'hello': 'سلام',
-
+        'homeworks': 'تمارین',
+        'Download': 'دانلود',
+        'HomeWorksAdded': 'تمارین اضافه شده',
+        
     }
 }

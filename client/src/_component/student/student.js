@@ -4,6 +4,7 @@ import axios from 'axios';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
+import {FormattedMessage} from 'react-intl';
 
 class Student extends Component {
   constructor(props) {
@@ -49,7 +50,7 @@ class Student extends Component {
     return <div style={{display:'flex',justifyContent:'center',alignItems:'center',height:'500px',flexDirection:'column'}}>
 
     <input type="file" style={{width:'30%',}} name="file" onChange={this.onChangeHandler} />
-    <button type="button" style={{width:'30%',}} class="btn btn-success btn-block" onClick={this.onClickHandler}>Upload</button>
+    <button type="button" style={{width:'30%',}} class="btn btn-success btn-block" onClick={this.onClickHandler}><FormattedMessage id='Upload' defaultMessage='Upload'/></button>
 
   </div>
   }

@@ -6,6 +6,8 @@ import { withRouter } from 'react-router-dom';
 import download from 'downloadjs';
 import Axios from 'axios';
 import filedownload from 'js-file-download';
+import {FormattedMessage} from 'react-intl';
+
 class DownloadHomework extends Component {
   constructor(props) {
     super(props);
@@ -50,7 +52,7 @@ class DownloadHomework extends Component {
       <table>
         <tbody style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
           <tr>
-            <th>home works</th>
+            <th><FormattedMessage id='homeworks' defaultMessage='homeworks'/></th>
           </tr>
 
           {homeWorks.map(homeWork => {
@@ -70,7 +72,7 @@ class DownloadHomework extends Component {
                   download(blob , homeWork.name );
                  // filedownload(blob,'test.rar')
                 }}
-              >Download</button></td>
+              ><FormattedMessage id='Download' defaultMessage='Download'/></button></td>
                             
                         </tr>
       })}
