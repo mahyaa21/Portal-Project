@@ -11,25 +11,25 @@ class ChatScreen extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      currentUser: {},
+      currentUser: this.props.currentUsername,
       currentRoom: {},
      messages: [],
      usersWhoAreTyping: [], //multiple users typing at the same time
     }
     this.sendMessage = this.sendMessage.bind(this)
-    this.sendTypingEvent = this.sendTypingEvent.bind(this)
+    //this.sendTypingEvent = this.sendTypingEvent.bind(this)
   }
 
-  sendTypingEvent() {
-        this.state.currentUser //access the current user
-          .isTypingIn({ roomId: this.state.currentRoom.id }) //specify the room id that the user typing in
-          .catch(error => console.error('error', error))
-      }
+  // sendTypingEvent() {
+  //       this.state.currentUser //access the current user
+  //         .isTypingIn({ roomId: this.state.currentRoom.id }) //specify the room id that the user typing in
+  //         .catch(error => console.error('error', error))
+  //     }
   
   sendMessage(text) { //takes some texts
         this.state.currentUser.sendMessage({ //access current user
           text,
-          roomId: this.state.currentRoom.id,
+          roomId: 'd972f236-7c4f-4056-ae97-4888b9df2fc7',
         })
       }
 
@@ -38,7 +38,7 @@ class ChatScreen extends Component {
       instanceLocator: 'v1:us1:d8e95432-dbb2-4e8f-8b0b-f0b97789a88c',
       userId: this.props.currentUsername,
       tokenProvider: new Chatkit.TokenProvider({
-        url: 'http://localhost:3001/authenticate', //point to the server
+        url: '/api/users/chat/authenticate', //point to the server
       }),
     })
 

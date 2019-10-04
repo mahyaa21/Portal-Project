@@ -1,7 +1,10 @@
 import React, { Component } from 'react'
 import UsernameForm from './components/UsernameForm'
-import ChatScreen from './ChatScreen'
-
+import ChatScreen from './ChatScreen';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import { withRouter } from 'react-router-dom';
+//import { registerUser } from '../_actions/authentication';
 class App extends Component {
   constructor() {
     super()
@@ -13,17 +16,18 @@ class App extends Component {
   }
 
   onUsernameSubmitted(username) {
-    fetch('http://localhost:3001/users', { //send a POST request to lacallhost port 3001/users(/users route we just defined)
+    const {user} = this.props.auth;
+    fetch('/api/users/chat', { //send a POST request to lacallhost port 3001/users(/users route we just defined)
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ username }),
+      body: JSON.stringify({ user }),
     })
     //response:
       .then(response => {
         this.setState({ //request is successful
-          currentUsername: username,
+          currentUsername: user.name,
           currentScreen: 'ChatScreen'
         })
       })
@@ -41,4 +45,15 @@ class App extends Component {
       }
     }
     
-    export default App
+   App.propTypes = {
+      //registerUser: PropTypes.func.isRequired,
+      auth: PropTypes.object.isRequired
+  };
+  
+  const mapStateToProps = state => ({
+      errors: state.errors,
+      auth: state.auth,
+      courseStatus: state.courseStatus
+  });
+  
+  export default connect(mapStateToProps)(withRouter(App))
