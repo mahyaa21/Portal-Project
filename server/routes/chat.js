@@ -8,8 +8,8 @@ const chatkit = new Chatkit.default({
   })
 
 router.post('/', (req, res) => {
-    const { user } = req.body
-     console.log(user)
+    const  currentuser  = req.body.user
+     console.log(currentuser)
      chatkit
      .createUser({
         id: user.id, 

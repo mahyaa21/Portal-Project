@@ -6,7 +6,8 @@ import { registerCourse } from '../../_actions/index';
 import classnames from 'classnames';
 import Axios from 'axios';
 import { MDBBtn } from "mdbreact";
-import '../../App.scss';
+//import {FormattedMessage} from 'react-intl';
+
 
 class RegisterCourse extends Component {
 
@@ -18,11 +19,7 @@ class RegisterCourse extends Component {
             teacher: '',
             teachers: [],
             courses: [],
-            errors: {},
-
-            //rows: [],
-            currentPage: 1,
-            rowsPerPage: 8,
+            errors: {}
         }
         this.result = 0;
         this.handleInputChange = this.handleInputChange.bind(this);
@@ -44,7 +41,7 @@ class RegisterCourse extends Component {
             teacher: this.state.teacher
         }
         console.log(course);
-        //this.setState({ courses: [...courses, course] });
+        this.setState({ courses: [...courses, course] });
         this.props.registerCourse(course, this.props.history);
         this.setState({
             
@@ -55,22 +52,12 @@ class RegisterCourse extends Component {
     
     }
 
-    handleClick=(event)=> {
-        console.log(Number(event.target.id))
-        this.setState({
-            currentPage: Number(event.target.id)
-        });
-        
-    }
-
     EditeCourse = (id) =>{
        // Axios.put('/api/edit'+ id).then(response=>{})
     }
 
-    deleteCourse = (id) =>{
-        Axios.delete(`/api/users/courses/${id}`).then(res=>{
-            alert('delete successfully')
-        })
+    deleteCourse = () =>{
+
     }
     componentWillReceiveProps(nextProps) {
         if (nextProps.errors) {
@@ -84,10 +71,6 @@ class RegisterCourse extends Component {
         Axios.get('/api/users/teacher').then(res => {
             this.setState({ teachers: [...res.data] })
         }).catch(err => console.log('axios for getting teachers has err:' + err))
-
-        Axios.get('/api/users/courses').then(res=>{
-            this.setState({ courses: [...res.data] })
-        }).catch(err => console.log('axios for getting courses has err:' + err))
     }
 
     componentDidMount() {
@@ -97,26 +80,12 @@ class RegisterCourse extends Component {
 
     createCourseAdded = () => {
         const { courses } = this.state;
-        const { rows, currentPage, rowsPerPage} = this.state;
-
-        const indexOfLastTodo = currentPage * rowsPerPage;
-        const indexOfFirstTodo = indexOfLastTodo - rowsPerPage;
-        const currentcourses = courses.slice(indexOfFirstTodo, indexOfLastTodo);
-
-
-        const pageNumbers = [];
-        for (let i = 1; i <= Math.ceil(courses.length / rowsPerPage); i++) {
-        pageNumbers.push(i);
-         }
-
-        console.log(courses)
         const { resStatus } = this.props.courseStatus;
         this.result = (resStatus == 'Ok') ? true : false;
-        console.log('pagenumbers:'+ pageNumbers);
         console.log('resstause: '+ resStatus)
         console.log('result: '+this.result);
         return <>
-            {!this.result || <div><table>
+            {!this.result || <table>
                 <tbody>
                 <tr>
                     <th>name</th>
@@ -124,36 +93,17 @@ class RegisterCourse extends Component {
                     <th>status</th>
                 </tr>
                 
-                    {currentcourses.map(course=>{
-                        console.log(course)
-                        return <tr key={course.id} id={course._id}>
+                    {courses.map(course=>{
+                        return <tr key={course.id} id={course.id}>
                             <td>{course.name}</td>
                             <td>{course.teacher}</td>
                             <td>{course.status}</td>
-                            <td><MDBBtn onClick={this.EditeCourse(course._id)} color='info'>Edite</MDBBtn>  
-                            <MDBBtn onClick={this.deleteCourse(course._id)} color='danger'>delete</MDBBtn></td>
+                            <td><MDBBtn onClick={this.EditeCourse(course.id)} color='info'>edit</MDBBtn>  
+                            <MDBBtn onClick={this.deleteCourse} color='danger'>delete</MDBBtn></td>
                         </tr> 
                     })}
                </tbody>
-            </table>
-         
-        <ul id="page-numbers">
-        {pageNumbers.map(number => {
-            console.log('pagenumbers'+pageNumbers);
-      return (
-        <li
-          key={number}
-          id={number}
-          onClick={this.handleClick}
-          className={(this.state.currentPage === number ? 'active ' : '') + 'contorls'}
-        >
-          {number}
-        </li>
-      );
-    }) }
-       
-        </ul>
-      </div>}
+            </table>}
         </>
     }
 
@@ -162,8 +112,8 @@ class RegisterCourse extends Component {
         const { errors, teachers } = this.state;
         //console.log(teachers);
         return (
-            <div className="container AddnewUser" >
-                <h2 style={{ marginBottom: '40px' }}>Registration</h2>
+            <div className="container" style={{ marginTop: '50px', width: '700px' }}>
+                <h2 style={{ marginBottom: '40px' }}>registraition</h2>
                 <form onSubmit={this.handleSubmit}>
                     <div className="form-group">
                         <input
@@ -180,8 +130,7 @@ class RegisterCourse extends Component {
                     </div>
 
                     <div className="form-group">
-                        <select name="status" id="statu
-s" className="form-control" onChange={this.handleInputChange}>
+                        <select name="status" id="status" className="form-control" onChange={this.handleInputChange}>
                             <option value='notdefine'>choose status</option>
                             <option value="I" key='I'>Inprogress</option>
                             <option value="D" key='D'>Done</option>
@@ -204,7 +153,7 @@ s" className="form-control" onChange={this.handleInputChange}>
 
                     <div className="form-group">
                         <button type="submit" className="btn btn-primary">
-                            Register Course
+                        Register Course
                     </button>
                     </div>
                 </form>
