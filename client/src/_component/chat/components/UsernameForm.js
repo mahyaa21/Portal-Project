@@ -36,10 +36,7 @@ class UsernameForm extends Component {
               onChange={this.onChange}
             />}
             </FormattedMessage>
-            <FormattedMessage id='submit' defaultMessage="submit">
-            {placeholder =>
-            <input type="submit" placeholder={placeholder} />}
-            </FormattedMessage>
+            <input type="submit" />}
           </form>
         </div>
       </div>
