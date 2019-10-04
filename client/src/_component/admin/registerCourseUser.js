@@ -115,8 +115,10 @@ class RegisterCourseUser extends Component {
                     <div className="form-group">
 
                         <select name="student" id="student" className="form-control" onChange={this.handleInputChange}>
-
-                            <option value='notdefine'>choose student</option>
+                        <FormattedMessage id='chooseStudent' >
+                            {(message) =>
+                            <option value='notdefine'>{message}</option>}
+                            </FormattedMessage>
                             {students.map(student => {
                                 return <option value={student.id} key={student.id}>{student.name}</option>
                             })}
@@ -128,8 +130,10 @@ class RegisterCourseUser extends Component {
                     <div className="form-group">
 
                         <select name="course" id="course" className="form-control" onChange={this.handleInputChange}>
-
-                            <option value='notdefine'>choose course</option>
+                        <FormattedMessage id='chooseCourse' >
+                            {(message) =>
+                            <option value='notdefine'>{message}</option>}
+                            </FormattedMessage>
                             {courses.map(course => {
                                 return <option value={course.id} key={course.id}>{course.name}</option>
                             })}

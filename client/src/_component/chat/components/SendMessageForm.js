@@ -1,6 +1,7 @@
 //a copmonent to capture a text(sent message) by using a form
 // is the same as theWhatIsYourUsernameForm component 
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import {FormattedMessage} from 'react-intl';
 
  class SendMessageForm extends Component {
    constructor(props) {
@@ -48,13 +49,16 @@ import React, { Component } from 'react'
        <div style={styles.container}>
          <div>
            <form onSubmit={this.onSubmit} style={styles.form}>
+           <FormattedMessage id="typeMessage" defaultMessage="Type a message here then hit ENTER">
+              {placeholder =>
              <input
                type="text"
-               placeholder="Type a message here then hit ENTER"
+               placeholder={placeholder}
                onChange={this.onChange}
                value={this.state.text}
                style={styles.input}
-             />
+             />}
+             </FormattedMessage>
            </form>
          </div>
        </div>

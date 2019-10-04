@@ -47,6 +47,20 @@ export default{
         'HomeWorksAdded': 'Added HomeWorks',
         'Error!': 'Error!',
         'sample': 'sample',
+        'Name': 'Name',
+        'Email': 'Email',
+        'password': 'Password',
+        'ConfirmPassword': 'Confirm Password',
+        'chooserole': 'choose role',
+        'student': 'student',
+        'admin': 'admin',
+        'typeMessage': 'Type a message here then hit ENTER',
+        'YourUsername': 'Your Username',
+        'submit': 'submit',
+        '(You)': '(You)',
+        'Loading': 'Loading',
+        'ChooseFile': 'ChooseFile',
+
 
     },
     fa:{
@@ -97,6 +111,19 @@ export default{
         'HomeWorksAdded': 'تمارین اضافه شده',
         'Error!': '!خطا',
         'sample': 'نمونه',
+        'Name': 'نام',
+        'Email': 'ایمیل',
+        'password': 'رمز عبور',
+        'ConfirmPassword': 'تایید رمز عبور',
+        'chooserole': 'انتخاب نقش',
+        'student': 'دانشجو',
+        'admin': 'ادمین',
+        'typeMessage': 'پیامی در اینجا تایپ کنید سپس اینتر را فشار دهید',
+        'YourUsername': 'نام کاربری شما',
+        'submit': 'تایید',
+        '(You)': '(شما)',
+        'Loading': 'در حال بارگذاری',
+        'ChooseFile': 'انتخاب فایل',
 
     }
 }

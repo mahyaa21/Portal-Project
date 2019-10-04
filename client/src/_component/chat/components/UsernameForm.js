@@ -28,11 +28,14 @@ class UsernameForm extends Component {
         <div>
           <h2><FormattedMessage id='whatUsername' defaultMessage='What is your username?'/></h2>
           <form onSubmit={this.onSubmit}>
+          <FormattedMessage id='YourUsername' defaultMessage="Your Username">
+            {placeholder =>
             <input
               type="text"
-              placeholder="Your full name"
+              placeholder={placeholder}
               onChange={this.onChange}
-            />
+            />}
+            </FormattedMessage>
             <input type="submit" />
           </form>
         </div>
