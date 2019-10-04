@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import {FormattedMessage} from 'react-intl';
 
 class UsernameForm extends Component {
  constructor(props) {
@@ -23,7 +24,7 @@ class UsernameForm extends Component {
     return (
       <div>
         <div>
-          <h2>What is your username?</h2>
+          <h2><FormattedMessage id='whatUsername' defaultMessage='What is your username?'/></h2>
           <form onSubmit={this.onSubmit}>
             <input
               type="text"

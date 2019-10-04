@@ -37,6 +37,11 @@ export default{
         'Overview': 'Overview',
         'LatestSales': 'Latest Sales',
         'whatUsername': 'What is your username?',
+        'AddNewUser': 'Add New User',
+        'RegisterCourseUser': 'Register Course User',
+        'courseRegister': 'Course Register',
+        'chat': 'chat',
+        'hello': 'hello',
 
     },
     fa:{
@@ -77,6 +82,11 @@ export default{
         'Overview': 'نمای کلی',
         'LatestSales': 'آخرین فروش',
         'whatUsername': 'نام کاربری شما چیست؟',
-        
+        'AddNewUser': 'اضافه کردن کاربر جدید',
+        'RegisterCourseUser': 'ثبت‌نام کاربر در دوره',
+        'courseRegister': 'ثبت‌نام دوره',
+        'chat': 'چت',
+        'hello': 'سلام',
+
     }
 }
