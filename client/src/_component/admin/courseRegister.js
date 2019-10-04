@@ -18,7 +18,11 @@ class RegisterCourse extends Component {
             teacher: '',
             teachers: [],
             courses: [],
-            errors: {}
+            errors: {},
+
+            //rows: [],
+            currentPage: 1,
+            rowsPerPage: 8,
         }
         this.result = 0;
         this.handleInputChange = this.handleInputChange.bind(this);
@@ -51,6 +55,14 @@ class RegisterCourse extends Component {
     
     }
 
+    handleClick=(event)=> {
+        console.log(Number(event.target.id))
+        this.setState({
+            currentPage: Number(event.target.id)
+        });
+        
+    }
+
     EditeCourse = (id) =>{
        // Axios.put('/api/edit'+ id).then(response=>{})
     }
@@ -71,7 +83,7 @@ class RegisterCourse extends Component {
             this.setState({ teachers: [...res.data] })
         }).catch(err => console.log('axios for getting teachers has err:' + err))
 
-        Axios.get('/api/users/course').then(res=>{
+        Axios.get('/api/users/courses').then(res=>{
             this.setState({ courses: [...res.data] })
         }).catch(err => console.log('axios for getting courses has err:' + err))
     }
@@ -83,12 +95,26 @@ class RegisterCourse extends Component {
 
     createCourseAdded = () => {
         const { courses } = this.state;
+        const { rows, currentPage, rowsPerPage} = this.state;
+
+        const indexOfLastTodo = currentPage * rowsPerPage;
+        const indexOfFirstTodo = indexOfLastTodo - rowsPerPage;
+        const currentcourses = courses.slice(indexOfFirstTodo, indexOfLastTodo);
+
+
+        const pageNumbers = [];
+        for (let i = 1; i <= Math.ceil(courses.length / rowsPerPage); i++) {
+        pageNumbers.push(i);
+         }
+
+        console.log(courses)
         const { resStatus } = this.props.courseStatus;
         this.result = (resStatus == 'Ok') ? true : false;
+        console.log('pagenumbers:'+ pageNumbers);
         console.log('resstause: '+ resStatus)
         console.log('result: '+this.result);
         return <>
-            {!this.result || <table>
+            {!this.result || <div><table>
                 <tbody>
                 <tr>
                     <th>name</th>
@@ -96,7 +122,7 @@ class RegisterCourse extends Component {
                     <th>status</th>
                 </tr>
                 
-                    {courses.map(course=>{
+                    {currentcourses.map(course=>{
                         return <tr key={course.id} id={course.id}>
                             <td>{course.name}</td>
                             <td>{course.teacher}</td>
@@ -106,7 +132,25 @@ class RegisterCourse extends Component {
                         </tr> 
                     })}
                </tbody>
-            </table>}
+            </table>
+         
+        <ul id="page-numbers">
+        {pageNumbers.map(number => {
+            console.log('pagenumbers'+pageNumbers);
+      return (
+        <li
+          key={number}
+          id={number}
+          onClick={this.handleClick}
+          className={(this.state.currentPage === number ? 'active ' : '') + 'contorls'}
+        >
+          {number}
+        </li>
+      );
+    }) }
+       
+        </ul>
+      </div>}
         </>
     }
 

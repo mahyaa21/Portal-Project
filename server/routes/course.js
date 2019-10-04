@@ -4,15 +4,12 @@ const Course = require('../model/course')
 const User = require('../model/user');
 const CourseUser = require('../model/course-user');
 router.get('/', (req, res) => {
-    res.send('there is course router!')
+  //  res.send('there is course router!')
     Course.find({}).then(courses => {
-        res.json({
-            id: req.courses.id,
-            name: req.courses.name,
-            teacher: req.course.teacher
-
-        })
-    })
+        res.json(courses)
+    }).catch(err => {
+        res.send('Course does not show because ...' + err);
+      })
 })
 
  router.post('/create',(req,res)=>{
