@@ -40,7 +40,7 @@ class RegisterCourse extends Component {
             teacher: this.state.teacher
         }
         console.log(course);
-        this.setState({ courses: [...courses, course] });
+        //this.setState({ courses: [...courses, course] });
         this.props.registerCourse(course, this.props.history);
         this.setState({
             
