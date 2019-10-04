@@ -8,6 +8,8 @@ import {Navbar, Nav, NavItem, Button, Glyphicon} from 'react-bootstrap';
 //import Sidebar from 'react-bootstrap-sidebar';
 // import Upload from './Upload';
 import { FaBars } from 'react-icons/fa';
+import {FormattedMessage} from 'react-intl';
+
 class TeacherSidebar extends Component {
 
 
@@ -42,8 +44,8 @@ class TeacherSidebar extends Component {
        
             <div>
                 <ul>
-                    <li><Link className="nav-link" to="/download">upload</Link></li>
-                    <li><Link className="nav-link" to="/upload">download</Link></li>
+                    <li><Link className="nav-link" to="/download"><FormattedMessage id='Upload' defaultMessage='Upload'/></Link></li>
+                    <li><Link className="nav-link" to="/upload"><FormattedMessage id='Download' defaultMessage='Download'/></Link></li>
                 </ul>
             </div>
         </>

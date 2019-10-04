@@ -6,7 +6,7 @@ import { registerCourseUser } from '../../_actions/index';
 import classnames from 'classnames';
 import Axios from 'axios';
 import { MDBBtn } from "mdbreact";
-
+import {FormattedMessage} from 'react-intl';
 
 class RegisterCourseUser extends Component {
 
@@ -85,16 +85,16 @@ class RegisterCourseUser extends Component {
             {!this.result || <table>
                 <tbody>
                     <td>
-                        <th>Course name</th>
-                        <th>Student name</th>
+                        <th><FormattedMessage id='CourseName' defaultMessage='Course name'/></th>
+                        <th><FormattedMessage id='StudentName' defaultMessage='Student name'/></th>
                     </td>
 
                     {CoursesUser.map(courseuser => {
                         return <td key={courseuser.id} id={courseuser.id}>
                             <tr>{courseuser.course}</tr>
                             <tr>{courseuser.student}</tr>
-                            <tr><MDBBtn onClick={this.EditeCourseuser(courseuser.id)} color='info'>Edite</MDBBtn>
-                                <MDBBtn onClick={this.deleteCourseuser} color='danger'>delete</MDBBtn></tr>
+                            <tr><MDBBtn onClick={this.EditeCourseuser(courseuser.id)} color='info'><FormattedMessage id='Edit' defaultMessage='Edit'/></MDBBtn>
+                                <MDBBtn onClick={this.deleteCourseuser} color='danger'><FormattedMessage id='delete' defaultMessage='delete'/></MDBBtn></tr>
                         </td>
                     })}
                 </tbody>
@@ -109,7 +109,7 @@ class RegisterCourseUser extends Component {
         console.log(courses);
         return (
             <div className="container AddnewUser">
-                <h2 style={{ marginBottom: '40px' }}>Registration</h2>
+                <h2 style={{ marginBottom: '40px' }}><FormattedMessage id='Registration' defaultMessage='Registration'/></h2>
                 <form onSubmit={this.handleSubmit}>
 
                     <div className="form-group">
@@ -140,8 +140,8 @@ class RegisterCourseUser extends Component {
 
                     <div className="form-group">
                         <button type="submit" className="btn btn-primary">
-                            Register Course
-                    </button>
+                            <FormattedMessage id='RegisterCourse' defaultMessage='Register Course'/>
+                        </button>
                     </div>
                 </form>
 

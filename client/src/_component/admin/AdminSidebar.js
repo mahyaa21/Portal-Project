@@ -8,6 +8,8 @@ import {Navbar, Nav, NavItem, Button, Glyphicon} from 'react-bootstrap';
 //import Sidebar from 'react-bootstrap-sidebar';
 import AddNewUser from './AddNewUser';
 import { FaBars } from 'react-icons/fa';
+import {FormattedMessage} from 'react-intl';
+
 class AdminSidebar extends Component {
 
 
@@ -42,10 +44,10 @@ class AdminSidebar extends Component {
        
             <div>
                 <ul>
-                    <li><Link className="nav-link" to="/addnewuser">Add new user</Link></li>
-                    <li><Link className="nav-link" to="/registercourseuser">Register Course User</Link></li>
-                    <li><Link className="nav-link" to="/course">course Register</Link></li>
-                    <li><Link className="nav-link" to="/chat">chat</Link></li>
+                    <li><Link className="nav-link" to="/addnewuser"><FormattedMessage id='AddNewUser' defaultMessage='Add new user'/></Link></li>
+                    <li><Link className="nav-link" to="/registercourseuser"><FormattedMessage id='RegisterCourseUser' defaultMessage='Register Course User'/></Link></li>
+                    <li><Link className="nav-link" to="/course"><FormattedMessage id='courseRegister' defaultMessage='course Register'/></Link></li>
+                    <li><Link className="nav-link" to="/chat"><FormattedMessage id='chat' defaultMessage='chat'/></Link></li>
                 </ul>
             </div>
         </>

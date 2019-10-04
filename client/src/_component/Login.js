@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { loginUser } from '../_actions/authentication';
 import classnames from 'classnames';
 import '../App.scss'
+import {FormattedMessage} from 'react-intl';
 
 class Login extends Component {
 
@@ -55,7 +56,7 @@ class Login extends Component {
         <div className="container login">
            
             <div className='loginForm'>
-            <h2 className='title'>Login</h2>
+            <h2 className='title'><FormattedMessage id='Login' defaultMessage='Login' /></h2>
             <form onSubmit={ this.handleSubmit }>
                 <div className="form-group">
                     <input
@@ -85,7 +86,7 @@ class Login extends Component {
                 </div>
                 <div className="form-group">
                     <button type="submit" className="btn btn-primary button" >
-                        Login User
+                        <FormattedMessage id='LoginUser' defaultMessage='Login User' /> 
                     </button>
                 </div>
             </form>
