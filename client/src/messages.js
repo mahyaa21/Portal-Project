@@ -59,6 +59,8 @@ export default{
         'submit': 'submit',
         '(You)': '(You)',
         'Loading': 'Loading',
+        'ChooseFile': 'ChooseFile',
+
 
     },
     fa:{
@@ -121,7 +123,7 @@ export default{
         'submit': 'تایید',
         '(You)': '(شما)',
         'Loading': 'در حال بارگذاری',
-
+        'ChooseFile': 'انتخاب فایل',
 
     }
 }
