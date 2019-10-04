@@ -92,8 +92,8 @@ class AddNewUser extends Component {
                             <td>{user.name}</td>
                             <td>{user.email}</td>
                             <td>{user.role}</td>
-                            <td><MDBBtn onClick={this.Editeuser(user.id)} color='info'><FormattedMessage id='Edit' defaultMessage='Edit'/></MDBBtn>
-                                <MDBBtn onClick={this.deleteuser} color='danger'><FormattedMessage id='delete' defaultMessage='delete'/></MDBBtn></td>
+                            {/* <td><MDBBtn onClick={this.Editeuser(user.id)} color='info'><FormattedMessage id='Edit' defaultMessage='Edit'/></MDBBtn>
+                                <MDBBtn onClick={this.deleteuser} color='danger'><FormattedMessage id='delete' defaultMessage='delete'/></MDBBtn></td> */}
                         </tr>
                     })}
                 </tbody>
