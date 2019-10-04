@@ -82,9 +82,9 @@ class AddNewUser extends Component {
             {!this.result || <table>
                 <tbody>
                     <tr>
-                        <th>name</th>
-                        <th>email</th>
-                        <th>role</th>
+                        <th><FormattedMessage id='name' defaultMessage='name'/></th>
+                        <th><FormattedMessage id='email' defaultMessage='email'/></th>
+                        <th><FormattedMessage id='role' defaultMessage='role'/></th>
                     </tr>
 
                     {users.map(user => {
