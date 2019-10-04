@@ -96,8 +96,8 @@ showHomeworks = () =>{
  
     return <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '500px', flexDirection: 'column' }}>
 
-      <input type="file" style={{ width: '70%', }} name="file" onChange={this.onChangeHandler} />
-      <button type="button" style={{ width: '70%', }} className="btn btn-success btn-block" onClick={this.onClickHandler}><FormattedMessage id='Upload' defaultMessage='Upload'/></button>
+      <input type="file" style={{ width: '30%', margin: '20px' }} name="file" onChange={this.onChangeHandler} />
+      <button type="button" style={{ width: '20%', border: '50%'}} className="btn btn-primary btn-block" onClick={this.onClickHandler}><FormattedMessage id='Upload' defaultMessage='Upload'/></button>
 
       {this.showHomeworks()}
 

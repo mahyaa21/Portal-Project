@@ -36,12 +36,12 @@ class Chat extends Component {
   }
 
   render() {
-        if (this.state.currentScreen === 'WhatIsYourUsernameScreen') {
-          return <UsernameForm onSubmit={this.onUsernameSubmitted} />
-        }
-        if (this.state.currentScreen === 'ChatScreen') {
-          return <ChatScreen currentUsername={this.state.currentUsername} />
-        }
+       // if (this.state.currentScreen === 'WhatIsYourUsernameScreen') {
+       //   return <UsernameForm onSubmit={this.onUsernameSubmitted} />
+      //  }
+        //if (this.state.currentScreen === 'ChatScreen') {
+          return<> <ChatScreen currentUsername={this.state.currentUsername} /></>
+        //}
       }
     }
     
