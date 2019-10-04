@@ -14,6 +14,7 @@ import '../../App.scss';
 import validators from '../../common/validators';
 import Sidebar from '../Sidebar';
 //import Routes from '../../Routes';
+import {FormattedMessage} from 'react-intl';
 
 
 const browserHistory = createBrowserHistory();
@@ -50,7 +51,7 @@ class Admin extends Component {
         </Router>
       </ThemeProvider> */
       <div className='mainPage'>
-        <h1>hello</h1>
+        <h1><FormattedMessage id='hello' defaultMessage='hello'/></h1>
         <div></div>
       </div>
       

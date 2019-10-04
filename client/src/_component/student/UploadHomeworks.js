@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 import Axios from 'axios';
+import {FormattedMessage} from 'react-intl';
 
 class UploadHomework extends Component {
   constructor(props) {
@@ -76,7 +77,7 @@ showHomeworks = () =>{
          <table>
           <tbody>
                 <tr>
-                    <th>HomeWorks added</th>
+                    <th><FormattedMessage id='HomeWorksAdded' defaultMessage='Added HomeWorks'/></th>
                 </tr>
 
                 {homeworks.map(homework=>{
@@ -84,9 +85,6 @@ showHomeworks = () =>{
                         <td>{homework.name}</td>
                     </tr>
                 })}
-                
-          
-          
           </tbody>
           </table>
     </>
@@ -99,7 +97,7 @@ showHomeworks = () =>{
     return <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '500px', flexDirection: 'column' }}>
 
       <input type="file" style={{ width: '70%', }} name="file" onChange={this.onChangeHandler} />
-      <button type="button" style={{ width: '70%', }} className="btn btn-success btn-block" onClick={this.onClickHandler}>Upload</button>
+      <button type="button" style={{ width: '70%', }} className="btn btn-success btn-block" onClick={this.onClickHandler}><FormattedMessage id='Upload' defaultMessage='Upload'/></button>
 
       {this.showHomeworks()}
 

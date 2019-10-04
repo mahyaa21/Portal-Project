@@ -37,6 +37,16 @@ export default{
         'Overview': 'Overview',
         'LatestSales': 'Latest Sales',
         'whatUsername': 'What is your username?',
+        'AddNewUser': 'Add New User',
+        'RegisterCourseUser': 'Register Course User',
+        'courseRegister': 'Course Register',
+        'chat': 'chat',
+        'hello': 'hello',
+        'homeworks': 'homeworks',
+        'Download': 'Download',
+        'HomeWorksAdded': 'Added HomeWorks',
+        'Error!': 'Error!',
+        'sample': 'sample',
 
     },
     fa:{
@@ -77,6 +87,16 @@ export default{
         'Overview': 'نمای کلی',
         'LatestSales': 'آخرین فروش',
         'whatUsername': 'نام کاربری شما چیست؟',
-        
+        'AddNewUser': 'اضافه کردن کاربر جدید',
+        'RegisterCourseUser': 'ثبت‌نام کاربر در دوره',
+        'courseRegister': 'ثبت‌نام دوره',
+        'chat': 'چت',
+        'hello': 'سلام',
+        'homeworks': 'تمارین',
+        'Download': 'دانلود',
+        'HomeWorksAdded': 'تمارین اضافه شده',
+        'Error!': '!خطا',
+        'sample': 'نمونه',
+
     }
 }

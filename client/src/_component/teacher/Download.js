@@ -1,6 +1,7 @@
 import React from 'react';
 import Helpers from './Helper'
 //import './download.css';
+import {FormattedMessage} from 'react-intl';
 
 class DownloadFile extends React.Component {
 
@@ -74,13 +75,13 @@ class DownloadFile extends React.Component {
                 <form onSubmit={this.handleSubmit}>
                     <div className="input-group mb-3">
                         <div className="input-group-prepend">
-                            <span className="input-group-text">sample.</span>
+                            <span className="input-group-text"><FormattedMessage id='sample' defaultMessage='sample'/>.</span>
                         </div>
                         <input disabled={loading} className="form-control" onChange={this.handleChange} value={file} type="text" name="file" placeholder="File type, ex csv, pdf, png, etc" autoComplete="off" />
                     </div>
                     {(errors)
                         ? (<div className="form-group">
-                            <div className="alert alert-danger"><strong>Error!</strong> {errors.message || 'Something went wrong.'}</div>
+                            <div className="alert alert-danger"><strong><FormattedMessage id='Error!' defaultMessage='Error!'/></strong> {errors.message || 'Something went wrong.'}</div>
                         </div>
                         )
                         : null
