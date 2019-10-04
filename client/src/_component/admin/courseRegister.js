@@ -116,24 +116,36 @@ class RegisterCourse extends Component {
                 <h2 style={{ marginBottom: '40px' }}><FormattedMessage id='Registration' defaultMessage='Registration'/></h2>
                 <form onSubmit={this.handleSubmit}>
                     <div className="form-group">
+                    <FormattedMessage id="Name" defaultMessage="Name">
+                        {placeholder =>
                         <input
                             type="text"
-                            placeholder="Name"
+                            placeholder={placeholder}
                             className={classnames('form-control form-control-lg', {
                                 'is-invalid': errors.name
                             })}
                             name="name"
                             onChange={this.handleInputChange}
                             value={this.state.name}
-                        />
+                        />}
+                        </FormattedMessage>
                         {errors.name && (<div className="invalid-feedback">{errors.name}</div>)}
                     </div>
 
                     <div className="form-group">
                         <select name="status" id="status" className="form-control" onChange={this.handleInputChange}>
-                            <option value='notdefine'>choose status</option>
-                            <option value="I" key='I'>Inprogress</option>
-                            <option value="D" key='D'>Done</option>
+                        <FormattedMessage id='chooseStatus' >
+                            {(message) =>
+                            <option value='notdefine'>{message}</option>}
+                            </FormattedMessage>
+                            <FormattedMessage id='Inprogress' >
+                            {(message) =>
+                            <option value="I" key='I'>{message}</option>}
+                            </FormattedMessage>
+                            <FormattedMessage id='Done' >
+                            {(message) =>
+                            <option value="D" key='D'>{message}</option>}
+                            </FormattedMessage>
                         </select>
                         {errors.email && (<div className="invalid-feedback">{errors.email}</div>)}
                     </div>
@@ -141,8 +153,10 @@ class RegisterCourse extends Component {
                     <div className="form-group">
 
                         <select name="teacher" id="teacher" className="form-control" onChange={this.handleInputChange}>
-
-                            <option value='notdefine'>choose teacher</option>    
+                        <FormattedMessage id='chooseTeacher' >
+                            {(message) =>
+                            <option value='notdefine'>{message}</option>}
+                            </FormattedMessage>   
                             {teachers.map(teacher => {
                                 return <option value={teacher.id} key={teacher.id}>{teacher.name}</option>
                             })}
