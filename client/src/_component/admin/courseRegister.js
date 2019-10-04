@@ -6,6 +6,7 @@ import { registerCourse } from '../../_actions/index';
 import classnames from 'classnames';
 import Axios from 'axios';
 import { MDBBtn } from "mdbreact";
+//import {FormattedMessage} from 'react-intl';
 
 
 class RegisterCourse extends Component {
@@ -40,7 +41,7 @@ class RegisterCourse extends Component {
             teacher: this.state.teacher
         }
         console.log(course);
-        //this.setState({ courses: [...courses, course] });
+        this.setState({ courses: [...courses, course] });
         this.props.registerCourse(course, this.props.history);
         this.setState({
             
@@ -70,10 +71,6 @@ class RegisterCourse extends Component {
         Axios.get('/api/users/teacher').then(res => {
             this.setState({ teachers: [...res.data] })
         }).catch(err => console.log('axios for getting teachers has err:' + err))
-
-        Axios.get('/api/users/course').then(res=>{
-            this.setState({ courses: [...res.data] })
-        }).catch(err => console.log('axios for getting courses has err:' + err))
     }
 
     componentDidMount() {
@@ -101,7 +98,7 @@ class RegisterCourse extends Component {
                             <td>{course.name}</td>
                             <td>{course.teacher}</td>
                             <td>{course.status}</td>
-                            <td><MDBBtn onClick={this.EditeCourse(course.id)} color='info'>Edite</MDBBtn>  
+                            <td><MDBBtn onClick={this.EditeCourse(course.id)} color='info'>edit</MDBBtn>  
                             <MDBBtn onClick={this.deleteCourse} color='danger'>delete</MDBBtn></td>
                         </tr> 
                     })}
@@ -115,8 +112,8 @@ class RegisterCourse extends Component {
         const { errors, teachers } = this.state;
         //console.log(teachers);
         return (
-            <div className="container AddnewUser" >
-                <h2 style={{ marginBottom: '40px' }}>Registration</h2>
+            <div className="container" style={{ marginTop: '50px', width: '700px' }}>
+                <h2 style={{ marginBottom: '40px' }}>registraition</h2>
                 <form onSubmit={this.handleSubmit}>
                     <div className="form-group">
                         <input
@@ -133,8 +130,7 @@ class RegisterCourse extends Component {
                     </div>
 
                     <div className="form-group">
-                        <select name="status" id="statu
-s" className="form-control" onChange={this.handleInputChange}>
+                        <select name="status" id="status" className="form-control" onChange={this.handleInputChange}>
                             <option value='notdefine'>choose status</option>
                             <option value="I" key='I'>Inprogress</option>
                             <option value="D" key='D'>Done</option>
@@ -157,7 +153,7 @@ s" className="form-control" onChange={this.handleInputChange}>
 
                     <div className="form-group">
                         <button type="submit" className="btn btn-primary">
-                            Register Course
+                        Register Course
                     </button>
                     </div>
                 </form>

@@ -4,15 +4,12 @@ const Course = require('../model/course')
 const User = require('../model/user');
 const CourseUser = require('../model/course-user');
 router.get('/', (req, res) => {
-    res.send('there is course router!')
+  //  res.send('there is course router!')
     Course.find({}).then(courses => {
-        res.json({
-            id: req.courses.id,
-            name: req.courses.name,
-            teacher: req.course.teacher
-
-        })
-    })
+        res.json(courses)
+    }).catch(err => {
+        res.send('Course does not show because ...' + err);
+      })
 })
 
  router.post('/create',(req,res)=>{
@@ -71,15 +68,26 @@ router.put('/edit/:id',(req,res)=>{
     })
 });
 
-router.delete('/:id',(req, res)=>{
+router.delete('/:name',(req, res)=>{
 
-    Course.remove({_id: req.params.id}).then(result=>{
+    Course.findOne({name: req.params.name},'_id').then(res=>{
 
-       // req.flash('success_message','category was successfully updated');
+        // Course.deleteOne({_id: res.id}).then(result=>{
 
-        res.redirect('/courses');
-
-    });
+        //     console.log(result)
+        //     res.send(result)
+        //     //  alert('delete successfully!')
+        //      // req.flash('success_message','category was successfully updated');
+      
+        //      // res.redirect('/courses');
+      
+        //   }).catch(err => {
+        //     res.send('Course does not delete because ...' + err);
+        //   });
+    }).catch(err => {
+        res.send('Course does not find because ...' + err);
+      })
+   
 
 
 });

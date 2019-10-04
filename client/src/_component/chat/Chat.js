@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 //import { registerUser } from '../_actions/authentication';
-class App extends Component {
+class Chat extends Component {
   constructor() {
     super()
     this.state = {
@@ -22,7 +22,7 @@ class App extends Component {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ user }),
+      body: user/* JSON.stringify({ user }) */,
     })
     //response:
       .then(response => {
@@ -45,7 +45,7 @@ class App extends Component {
       }
     }
     
-   App.propTypes = {
+   Chat.propTypes = {
       //registerUser: PropTypes.func.isRequired,
       auth: PropTypes.object.isRequired
   };
@@ -56,4 +56,4 @@ class App extends Component {
       courseStatus: state.courseStatus
   });
   
-  export default connect(mapStateToProps)(withRouter(App))
+  export default connect(mapStateToProps)(withRouter(Chat))

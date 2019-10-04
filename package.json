@@ -34,6 +34,7 @@
     "node-sass": "^4.12.0",
     "pusher-chatkit-server": "^0.12.0",
     "react-bootstrap": "^1.0.0-beta.12",
+    "react-intl": "^3.3.2",
     "react-perfect-scrollbar": "^1.5.3",
     "react-redux": "^7.1.1",
     "react-router-dom": "^5.0.1",
