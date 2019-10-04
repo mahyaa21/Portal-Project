@@ -5,6 +5,9 @@ import { connect } from 'react-redux';
 import { logoutUser } from '../_actions/authentication';
 import { withRouter } from 'react-router-dom';
 import '../App.scss';
+import {FormattedMessage} from 'react-intl';
+import {setLocale} from '../_actions/locale';
+
 class Navbar extends Component {
 
     onLogout(e) {
@@ -51,6 +54,10 @@ class Navbar extends Component {
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                     {isAuthenticated ? authLinks : guestLinks}
                 </div>
+                <div className="nav-item">
+                    <a role='button' onClick={()=> this.props.setLocale('en')}><FormattedMessage id='nav.enlanguage' defaultMessage='EN'/></a>| 
+                    <a role='button' onClick={()=> this.props.setLocale('fa')}><FormattedMessage id='nav.falanguage' defaultMessage='FA'/></a>
+                </div>
             </nav>
         )
     }
@@ -64,4 +71,4 @@ const mapStateToProps = (state) => ({
     auth: state.auth
 })
 
-export default connect(mapStateToProps, { logoutUser })(withRouter(Navbar));
+export default connect(mapStateToProps, { logoutUser  , setLocale })(withRouter(Navbar));

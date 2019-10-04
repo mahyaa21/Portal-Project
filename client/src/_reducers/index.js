@@ -7,5 +7,6 @@ import locale from './locale';
 export default combineReducers({
     errors: errorReducer,
     auth: authReducer,
-    courseStatus: CourseResReducer
+    courseStatus: CourseResReducer,
+    locale: locale
 });
