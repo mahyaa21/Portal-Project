@@ -45,6 +45,7 @@ class AdminSidebar extends Component {
                     <li><Link className="nav-link" to="/addnewuser">Add new user</Link></li>
                     <li><Link className="nav-link" to="/registercourseuser">Register Course User</Link></li>
                     <li><Link className="nav-link" to="/course">course Register</Link></li>
+                    <li><Link className="nav-link" to="/chat">chat</Link></li>
                 </ul>
             </div>
         </>

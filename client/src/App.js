@@ -19,9 +19,8 @@ import Sidebar from './_component/Sidebar';
 import AddNewUser from './_component/admin/AddNewUser';
 import RegisterCourseUser from './_component/admin/registerCourseUser';
 import DownloadHomework from './_component/student/DownloadHomeworks'
-import UploadHomework from './_component/student/UploadHomeworks'
-
-
+import UploadHomework from './_component/student/UploadHomeworks';
+import Chat from './_component/chat/Chat';
 if(localStorage.jwtToken) {
     setAuthToken(localStorage.jwtToken);
     const decoded = jwt_decode(localStorage.jwtToken);
@@ -55,6 +54,7 @@ class App extends Component {
                   <Route path='/student' component={student}/>
                   <Route path='/download' component={UploadHomework}/>
                   <Route path='/upload' component={DownloadHomework}/>
+                  <Route path='/chat' component={Chat}/>
                 </div>
                  <Sidebar/> 
                 </div>
