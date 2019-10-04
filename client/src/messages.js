@@ -45,6 +45,8 @@ export default{
         'homeworks': 'homeworks',
         'Download': 'Download',
         'HomeWorksAdded': 'Added HomeWorks',
+        'Error!': 'Error!',
+        'sample': 'sample',
 
     },
     fa:{
@@ -93,6 +95,8 @@ export default{
         'homeworks': 'تمارین',
         'Download': 'دانلود',
         'HomeWorksAdded': 'تمارین اضافه شده',
-        
+        'Error!': '!خطا',
+        'sample': 'نمونه',
+
     }
 }
