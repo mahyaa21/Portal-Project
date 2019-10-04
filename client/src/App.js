@@ -1,10 +1,5 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import { Provider } from 'react-redux';
-import jwt_decode from 'jwt-decode';
-import setAuthToken from './setAuthToken';
-import { setCurrentUser, logoutUser } from './_actions/authentication';
-import store from './store';
 import './App.scss';
 import Register from './_component/register';
 import Login from './_component/Login';
@@ -21,27 +16,23 @@ import RegisterCourseUser from './_component/admin/registerCourseUser';
 import DownloadHomework from './_component/student/DownloadHomeworks'
 import UploadHomework from './_component/student/UploadHomeworks';
 import Chat from './_component/chat/Chat';
-if(localStorage.jwtToken) {
-    setAuthToken(localStorage.jwtToken);
-    const decoded = jwt_decode(localStorage.jwtToken);
-    store.dispatch(setCurrentUser(decoded));
-  
-    const currentTime = Date.now() / 1000;
-    if(decoded.exp < currentTime) {
-      store.dispatch(logoutUser());
-      window.location.href = '/login'
-    }
-  }
+import {IntlProvider} from 'react-intl';
+import messages from './messages';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
+
+
+
 class App extends Component {
   render() {
-   
+    const {lang} = this.props;
     return (
-      <Provider store = { store }>
+      <IntlProvider locale={lang} messages={messages[lang]}>
         <Router>
             <div style={{height:'92.5%'}}>
                 <Navbar/>
                 <div style={{display:'flex',flexDirection:'row',height:'100%'}}>
-                
                 <Route exact path="/" component={ Home } />
                 <div className="container">
                   <Route exact path="/register" component={ Register } />
@@ -60,16 +51,21 @@ class App extends Component {
                 </div>
             </div>
           </Router>
-        </Provider>
+        </IntlProvider>
     );
   }
 }
 
 
+App.propTypes = {
+  lang: PropTypes.string.isRequired
+}
 
-export default App;
+const mapStateToProps = (state) => ({
+  lang: state.locale.lang
+})
 
-//export default App;
+export default connect(mapStateToProps)(withRouter(App));
 
 
 
