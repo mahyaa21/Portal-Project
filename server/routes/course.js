@@ -70,11 +70,11 @@ router.put('/edit/:id',(req,res)=>{
 
 router.delete('/:id',(req, res)=>{
 
-    Course.remove({_id: req.params.id}).then(result=>{
+    Course.deleteOne({_id: req.params.id}).then(result=>{
 
        // req.flash('success_message','category was successfully updated');
 
-        res.redirect('/courses');
+       // res.redirect('/courses');
 
     });
 

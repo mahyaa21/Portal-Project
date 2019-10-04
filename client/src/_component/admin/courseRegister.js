@@ -6,7 +6,7 @@ import { registerCourse } from '../../_actions/index';
 import classnames from 'classnames';
 import Axios from 'axios';
 import { MDBBtn } from "mdbreact";
-
+import '../../App.scss';
 
 class RegisterCourse extends Component {
 
@@ -67,8 +67,10 @@ class RegisterCourse extends Component {
        // Axios.put('/api/edit'+ id).then(response=>{})
     }
 
-    deleteCourse = () =>{
-
+    deleteCourse = (id) =>{
+        Axios.delete(`/api/users/courses/${id}`).then(res=>{
+            alert('delete successfully')
+        })
     }
     componentWillReceiveProps(nextProps) {
         if (nextProps.errors) {
@@ -123,12 +125,13 @@ class RegisterCourse extends Component {
                 </tr>
                 
                     {currentcourses.map(course=>{
-                        return <tr key={course.id} id={course.id}>
+                        console.log(course)
+                        return <tr key={course.id} id={course._id}>
                             <td>{course.name}</td>
                             <td>{course.teacher}</td>
                             <td>{course.status}</td>
-                            <td><MDBBtn onClick={this.EditeCourse(course.id)} color='info'>Edite</MDBBtn>  
-                            <MDBBtn onClick={this.deleteCourse} color='danger'>delete</MDBBtn></td>
+                            <td><MDBBtn onClick={this.EditeCourse(course._id)} color='info'>Edite</MDBBtn>  
+                            <MDBBtn onClick={this.deleteCourse(course._id)} color='danger'>delete</MDBBtn></td>
                         </tr> 
                     })}
                </tbody>
