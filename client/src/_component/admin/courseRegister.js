@@ -40,7 +40,7 @@ class RegisterCourse extends Component {
             teacher: this.state.teacher
         }
         console.log(course);
-        this.setState({ courses: [...courses, course] });
+        //this.setState({ courses: [...courses, course] });
         this.props.registerCourse(course, this.props.history);
         this.setState({
             
@@ -70,6 +70,10 @@ class RegisterCourse extends Component {
         Axios.get('/api/users/teacher').then(res => {
             this.setState({ teachers: [...res.data] })
         }).catch(err => console.log('axios for getting teachers has err:' + err))
+
+        Axios.get('/api/users/course').then(res=>{
+            this.setState({ courses: [...res.data] })
+        }).catch(err => console.log('axios for getting courses has err:' + err))
     }
 
     componentDidMount() {
