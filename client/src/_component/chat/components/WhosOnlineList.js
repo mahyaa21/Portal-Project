@@ -1,3 +1,4 @@
+//
 import React, { Component } from 'react'
 
 class WhosOnlineList extends Component {
@@ -13,7 +14,7 @@ class WhosOnlineList extends Component {
             )
           }
           return (
-            <WhosOnlineListItem key={index} presenceState={user.presence.state}>
+            <WhosOnlineListItem key={index} presenceState={user.presence.state}> {/* indicate user is online or offline */}
               {user.name}
             </WhosOnlineListItem>
           )

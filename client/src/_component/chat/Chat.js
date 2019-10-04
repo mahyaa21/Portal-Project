@@ -1,35 +1,33 @@
 import React, { Component } from 'react'
 import UsernameForm from './components/UsernameForm'
 import ChatScreen from './ChatScreen'
-import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
-import { withRouter } from 'react-router-dom';
-class Chat extends Component {
+
+class App extends Component {
   constructor() {
     super()
     this.state = {
-      currentUsername: {},
+      currentUsername: '',
       currentScreen: 'WhatIsYourUsernameScreen'
     }
     this.onUsernameSubmitted = this.onUsernameSubmitted.bind(this)
   }
 
   onUsernameSubmitted(username) {
-    const {user}  = this.props.auth;
-    
-    fetch('/api/users/chat', {
+    fetch('http://localhost:3001/users', { //send a POST request to lacallhost port 3001/users(/users route we just defined)
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ user }),
+      body: JSON.stringify({ username }),
     })
+    //response:
       .then(response => {
-        this.setState({
-          currentUsername: user.name,  
+        this.setState({ //request is successful
+          currentUsername: username,
           currentScreen: 'ChatScreen'
         })
       })
+      //request fails
       .catch(error => console.error('error', error))
   }
 
@@ -43,15 +41,4 @@ class Chat extends Component {
       }
     }
     
-    Chat.propTypes = {
-      //registerUser: PropTypes.func.isRequired,
-      auth: PropTypes.object.isRequired
-  };
-  
-  const mapStateToProps = state => ({
-      errors: state.errors,
-      auth: state.auth,
-     // courseStatus: state.courseStatus
-  });
-  
-  export default connect(mapStateToProps)(withRouter(Chat))
+    export default App
